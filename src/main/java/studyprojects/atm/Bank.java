@@ -101,11 +101,34 @@ public class Bank {
     }
     
     /**
-     * Add an account for bank
+     * Add an account for bank.
      * @param anAcct    the account to add
      */
     void addAccount(Account anAcct) {
         this.accounts.add(anAcct);
+    }
+    
+    /**
+     * Create a new user of the bank.
+     * @param firstName the user's first name
+     * @param lastName  the user's last name
+     * @param pin           the user's pin
+     * @return the new User object
+     */
+    public User addUser(String firstName, String lastName, String pin) {
+        
+        // create a new User object and add it to our list
+        User newUser = new User(firstName, lastName, pin, this);
+        this.users.add(newUser);
+        
+        // create a savings account for the user
+        Account newAccount = new Account("Savings", newUser, this);
+        
+        // add to holder and bank lists
+        newUser.addAccount(newAccount);
+        this.addAccount(newAccount);
+        
+        return newUser;
     }
     
 }

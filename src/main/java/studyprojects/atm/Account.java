@@ -55,11 +55,6 @@ public class Account {
         // init transactions
         this.transactions = new ArrayList<>();
         
-        // add to holder and bank lists
-        holder.addAccount(this);
-        theBank.addAccount(this);
-        
-        
     }
 
     /**
