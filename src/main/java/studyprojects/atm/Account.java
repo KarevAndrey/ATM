@@ -61,5 +61,13 @@ public class Account {
         
         
     }
+
+    /**
+     * Return the account's UUID
+     * @return the uuid
+     */
+    public String getUUID() {
+        return this.uuid;
+    }
     
 }

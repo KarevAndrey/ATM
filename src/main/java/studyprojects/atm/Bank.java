@@ -5,6 +5,7 @@
 package studyprojects.atm;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -27,12 +28,76 @@ public class Bank {
      */
     private ArrayList<Account> accounts;
 
+    /**
+     * Get a new universal unique ID for a user.
+     * @return  the uuid
+     */
     public String getNewUserUUID() {
-    
+        
+        // inits
+        String uuid;
+        Random rng = new Random();
+        int len = 12;
+        boolean nonUnique;
+        
+        // continue looping while we get a unique ID
+        do {
+            
+            // generate the number
+            uuid = "";
+            for (int c = 0; c < len; c++) {
+                uuid += ((Integer)rng.nextInt(10)).toString();
+            }
+            
+            nonUnique = false;
+            // check to make shure it's unique
+            for (User u : this.users) {
+                if (uuid.compareTo(u.getUUID()) == 0) {
+                    nonUnique = true;
+                    break;
+                }
+            }
+            
+        } while(nonUnique);
+        
+        return uuid;
+        
     }
 
+    /**
+     * Get a new universal unique ID for an account.
+     * @return  the uuid
+     */
     String getNewAccountUUID() {
     
+        // inits
+        String uuid;
+        Random rng = new Random();
+        int len = 12;
+        boolean nonUnique;
+        
+        // continue looping while we get a unique ID
+        do {
+            
+            // generate the number
+            uuid = "";
+            for (int c = 0; c < len; c++) {
+                uuid += ((Integer)rng.nextInt(10)).toString();
+            }
+            
+            nonUnique = false;
+            // check to make shure it's unique
+            for (Account a : this.accounts) {
+                if (uuid.compareTo(a.getUUID()) == 0) {
+                    nonUnique = true;
+                    break;
+                }
+            }
+            
+        } while(nonUnique);
+        
+        return uuid;
+        
     }
     
     /**
