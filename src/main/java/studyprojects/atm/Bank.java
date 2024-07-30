@@ -28,9 +28,19 @@ public class Bank {
     private ArrayList<Account> accounts;
 
     public String getNewUserUUID() {
-        
-        
-        
+    
+    }
+
+    String getNewAccountUUID() {
+    
+    }
+    
+    /**
+     * Add an account for bank
+     * @param anAcct    the account to add
+     */
+    void addAccount(Account anAcct) {
+        this.accounts.add(anAcct);
     }
     
 }

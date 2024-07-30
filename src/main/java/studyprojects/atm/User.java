@@ -66,11 +66,19 @@ public class User {
         this.uuid = theBank.getNewUserUUID();
         
         // create an empty list of accounts
-        this.accounts = new ArrayList<Account>();
+        this.accounts = new ArrayList<>();
         
         // print log message
         System.out.printf("New user %s %s with ID %s created.\n", this.firstName,
                 this.lastName, this.uuid);
+    }
+    
+    /**
+     * Add an account for user
+     * @param anAcct    the account to add
+     */
+    void addAccount(Account anAcct) {
+        this.accounts.add(anAcct);
     }
     
 }
