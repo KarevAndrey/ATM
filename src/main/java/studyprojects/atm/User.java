@@ -88,5 +88,25 @@ public class User {
     public String getUUID() {
         return this.uuid;
     }
+
+    /**
+     * Check whether a given pin matches the true user pin.
+     * @param aPin  the pin to check
+     * @return          true if pin is valid, else false
+     */
+    public boolean validatePin(String aPin) {
+        
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            return MessageDigest.isEqual(md.digest(aPin.getBytes()),
+                    this.pinHash);
+        } catch (NoSuchAlgorithmException ex) {
+            System.err.println("error, caught NoSuchAlgorithmException");
+            System.exit(1);
+        }
+        
+        return false;
+        
+    }
     
 }
