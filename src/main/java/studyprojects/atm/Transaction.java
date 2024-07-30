@@ -31,4 +31,31 @@ public class Transaction {
      * The account in which transaction was performed.
      */
     private Account inAccount;
+    
+    /**
+     * Create a new transaction.
+     * @param amount    the amount transacted
+     * @param inAccount the account the transaction belong to
+     */
+    public Transaction(double amount, Account inAccount) {
+        
+        this.amount = amount;
+        this.inAccount = inAccount;
+        this.timestamp = new Date();
+        this.memo = "";
+        
+    }
+    
+    /**
+     * Create a new transaction.
+     * @param amount    the amount transacted
+     * @param inAccount the account the transaction belong to
+     * @param memo      the memo for the transaction
+     */
+    public Transaction(double amount, Account inAccount, String memo) {
+        
+        this(amount, inAccount);
+        this.memo = memo;
+        
+    }
 }
