@@ -26,5 +26,11 @@ public class Bank {
      * The list of accounts for this bank.
      */
     private ArrayList<Account> accounts;
+
+    public String getNewUserUUID() {
+        
+        
+        
+    }
     
 }
