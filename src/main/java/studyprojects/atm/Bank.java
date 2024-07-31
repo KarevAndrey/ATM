@@ -27,6 +27,26 @@ public class Bank {
      * The list of accounts for this bank.
      */
     private ArrayList<Account> accounts;
+    
+    /**
+     * Create a new Bank object with empty lists of users and accounts
+     * @param name the Bank's name
+     */
+    public Bank(String name) {
+        
+        this.name =name;
+        this.users = new ArrayList<>();
+        this.accounts = new ArrayList<>();
+        
+    }
+    
+    /**
+     * Get name of a bank
+     * @return name
+     */
+    public String getName() {
+        return this.name;
+    }
 
     /**
      * Get a new universal unique ID for a user.

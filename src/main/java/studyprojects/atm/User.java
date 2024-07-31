@@ -88,6 +88,14 @@ public class User {
     public String getUUID() {
         return this.uuid;
     }
+    
+    /**
+     * Return the user's first name.
+     * @return the first name
+     */
+    public String getFirstName() {
+        return this.firstName;
+    }
 
     /**
      * Check whether a given pin matches the true user pin.
@@ -107,6 +115,66 @@ public class User {
         
         return false;
         
+    }
+    
+    /**
+     * Print the summary for the accounts of this user
+     */
+    public void printAccountsSummary() {
+        
+        System.out.printf("\n\n%s's accounts summary\n", this.firstName);
+        for (int a = 0; a < this.accounts.size(); a++) {
+            System.out.printf("%d) %s\n", a+1,
+                    this.accounts.get(a).getSummaryLine());
+            
+        }
+        
+    }
+
+    /**
+     * Get number of accounts for the user
+     * @return the number of accounts
+     */
+    public int numAccounts() {
+        return this.accounts.size();
+    }
+    
+    /**
+     * Print transaction history for a particular account
+     * @param acctIdx   the index of the account to use
+     */
+    public void printAcctTransHistory(int acctIdx) {
+        
+        this.accounts.get(acctIdx).printTransHistory();
+        
+    }
+    
+    /**
+     * Get balance of chosen account
+     * @param acctIdx   index of the account
+     * @return balance of the account
+     */
+    public double getAcctBalance(int acctIdx) {
+        return this.accounts.get(acctIdx).getBalance();
+    }
+    
+    /**
+     * Get UUID of chosen account
+     * @param acctIdx index of the account
+     * @return balance of the account
+     */
+    public String getAcctUUID(int acctIdx) {
+        return this.accounts.get(acctIdx).getUUID();
+    }
+
+    /**
+     * Add transaction to chosen account's transactions list
+     * @param acctIdx     index of the account
+     * @param amount    amount of the transaction
+     * @param memo      memo of the transaction
+     */
+    public void addAccountTransaction(int acctIdx, double amount, String memo) {
+        this.accounts.get(acctIdx).addTransaction(amount, memo);
     }
     
 }
